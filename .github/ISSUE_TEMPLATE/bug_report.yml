@@ -1,0 +1,134 @@
+name: 🐛 Reportar Bug
+description: Relatar um problema técnico ou erro no sistema de atividades
+title: "[BUG] "
+labels: ["bug", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Obrigado por reportar um bug! Isto nos ajuda a melhorar o sistema de atividades da escola.
+        
+        **Para professores:** Por favor, forneça o máximo de detalhes possível. Estas informações ajudarão nosso agente de código a identificar e corrigir o problema rapidamente.
+
+  - type: input
+    id: summary
+    attributes:
+      label: Resumo do Problema
+      description: Descreva brevemente o que está acontecendo de errado
+      placeholder: "Ex: Os alunos não conseguem se inscrever nas atividades de basquete"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Descrição Detalhada
+      description: Explique o problema em detalhes
+      placeholder: |
+        Descreva exatamente o que você estava tentando fazer e o que aconteceu em vez disso.
+        
+        Exemplo:
+        - Eu estava tentando ver quantos alunos se inscreveram no clube de xadrez
+        - Cliquei na atividade "Chess Club" 
+        - A página mostrou "0 participantes" mas eu sei que pelo menos 5 alunos se inscreveram
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Passos para Reproduzir
+      description: Liste os passos exatos para reproduzir o problema
+      placeholder: |
+        1. Abrir o site do sistema de atividades
+        2. Clicar em "Chess Club"
+        3. Observar que mostra...
+        4. Ver erro...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Comportamento Esperado
+      description: O que deveria acontecer em vez disso?
+      placeholder: "Ex: Deveria mostrar a lista correta de alunos inscritos (pelo menos 5 alunos)"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: frequency
+    attributes:
+      label: Frequência do Problema
+      description: Com que frequência isto acontece?
+      options:
+        - Sempre acontece
+        - Acontece às vezes
+        - Aconteceu apenas uma vez
+        - Não tenho certeza
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Área Afetada
+      description: Qual parte do sistema está com problema?
+      options:
+        - Inscrições de alunos
+        - Visualização de atividades
+        - Filtros de pesquisa
+        - Login de professores
+        - Informações das atividades
+        - Interface do usuário
+        - Não tenho certeza
+    validations:
+      required: true
+
+  - type: dropdown
+    id: urgency
+    attributes:
+      label: Urgência
+      description: Quão urgente é resolver este problema?
+      options:
+        - Crítico - Impede o uso do sistema
+        - Alto - Causa problemas significativos
+        - Médio - Inconveniente mas contornável
+        - Baixo - Melhoria desejável
+    validations:
+      required: true
+
+  - type: textarea
+    id: impact
+    attributes:
+      label: Impacto nos Estudantes/Professores
+      description: Como este problema afeta alunos, professores ou atividades escolares?
+      placeholder: |
+        Ex: 
+        - Alunos não conseguem se inscrever e perdem o prazo
+        - Professores não conseguem ver listas de participantes
+        - Atividades podem ser canceladas por falta de informação
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Informações Adicionais
+      description: Qualquer outra informação relevante (mensagens de erro, horário quando aconteceu, etc.)
+      placeholder: |
+        - Mensagens de erro específicas
+        - Horário quando o problema ocorreu
+        - Se afeta atividades específicas
+        - Capturas de tela (se disponível)
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist de Verificação
+      description: "Antes de enviar, verifique se você:"
+      options:
+        - label: Tentei recarregar a página
+        - label: Testei em outro navegador (se possível)
+        - label: Verifiquei se outros professores têm o mesmo problema
+        - label: Incluí todos os detalhes importantes acima

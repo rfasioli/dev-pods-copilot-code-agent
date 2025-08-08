@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 🤔 Dúvida sobre como usar o sistema
+    url: https://github.com/rfasioli/dev-pods-copilot-code-agent/discussions
+    about: Faça perguntas gerais sobre como usar o sistema de atividades
+  - name: 📚 Documentação
+    url: https://github.com/rfasioli/dev-pods-copilot-code-agent/blob/main/docs/how-to-develop.md
+    about: Consulte o guia de desenvolvimento e documentação técnica
+  - name: 💬 Conversar com suporte técnico
+    url: https://github.com/rfasioli/dev-pods-copilot-code-agent/discussions/categories/suporte
+    about: Entre em contato para suporte técnico direto

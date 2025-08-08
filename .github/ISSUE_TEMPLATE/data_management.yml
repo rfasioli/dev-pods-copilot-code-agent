@@ -1,0 +1,253 @@
+name: 📊 Relatórios e Gestão de Dados
+description: Solicitar funcionalidades de relatórios, exportação de dados ou gestão de informações
+title: "[DATA] "
+labels: ["data-management", "reports"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use este formulário para solicitar funcionalidades relacionadas a relatórios, exportação de dados ou gestão de informações sobre as atividades.
+        
+        **Para professores:** Este formulário é ideal para solicitar relatórios de participação, listas de alunos, dados para análise, ou funcionalidades de gestão de dados.
+
+  - type: dropdown
+    id: request_type
+    attributes:
+      label: Tipo de Solicitação
+      description: Que tipo de funcionalidade de dados você precisa?
+      options:
+        - Relatório de participação dos alunos
+        - Lista de inscritos para imprimir
+        - Exportar dados para planilha
+        - Sistema de presença/frequência
+        - Estatísticas de atividades
+        - Histórico de participações
+        - Comunicação com alunos inscritos
+        - Backup ou recuperação de dados
+        - Outro tipo de gestão de dados
+    validations:
+      required: true
+
+  - type: textarea
+    id: data_needed
+    attributes:
+      label: Dados Necessários
+      description: Quais informações específicas você precisa acessar ou gerenciar?
+      placeholder: |
+        Seja específico sobre quais dados você precisa.
+        
+        Exemplo:
+        "Preciso de uma lista com nome completo, email e série de todos os alunos 
+        inscritos no Art Club para poder enviar lembretes sobre materiais necessários 
+        e organizar as atividades por faixa etária."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: frequency
+    attributes:
+      label: Frequência de Uso
+      description: Com que frequência você precisaria acessar estas informações?
+      options:
+        - Diariamente
+        - Semanalmente
+        - Mensalmente
+        - No início de cada semestre
+        - Ocasionalmente quando necessário
+        - Uma vez apenas
+    validations:
+      required: true
+
+  - type: textarea
+    id: purpose
+    attributes:
+      label: Finalidade e Objetivo
+      description: Para que você usará estas informações?
+      placeholder: |
+        Explique como você pretende usar os dados solicitados.
+        
+        Exemplo:
+        "Vou usar esta lista para:
+        1. Enviar emails semanais com cronograma de atividades
+        2. Organizar grupos de trabalho por idade/série
+        3. Fazer relatório mensal para a direção sobre participação
+        4. Planejar quantidade de materiais necessários"
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: data_fields
+    attributes:
+      label: Campos de Dados Necessários
+      description: Quais informações sobre os alunos você precisa? (selecione todas aplicáveis)
+      options:
+        - label: Nome completo
+        - label: Email
+        - label: Série/Ano escolar
+        - label: Data de inscrição
+        - label: Atividades em que está inscrito
+        - label: Histórico de participação
+        - label: Status da inscrição (ativo/inativo)
+        - label: Informações de contato dos pais
+        - label: Frequência/Presença
+        - label: Observações ou notas
+
+  - type: dropdown
+    id: output_format
+    attributes:
+      label: Formato de Saída Preferido
+      description: Como você gostaria de receber ou acessar estes dados?
+      options:
+        - Lista na tela (visualização online)
+        - Arquivo para download (Excel/CSV)
+        - Email com relatório anexado
+        - Relatório em PDF para imprimir
+        - Dashboard/painel no sistema
+        - Não tenho preferência
+    validations:
+      required: true
+
+  - type: dropdown
+    id: filters_needed
+    attributes:
+      label: Filtros Necessários
+      description: Você precisa filtrar os dados de alguma forma específica?
+      options:
+        - Por atividade específica
+        - Por período de tempo
+        - Por série/ano escolar
+        - Por status de inscrição
+        - Por categoria de atividade
+        - Todos os dados sem filtros
+        - Combinação de filtros
+    validations:
+      required: true
+
+  - type: textarea
+    id: specific_filters
+    attributes:
+      label: Filtros Específicos
+      description: Se você precisa de filtros específicos, descreva quais
+      placeholder: |
+        Exemplo:
+        "Quero poder filtrar por:
+        - Atividades que eu coordeno apenas
+        - Alunos inscritos nos últimos 30 dias
+        - Separar por série (9º, 1º ano, 2º ano, 3º ano)
+        - Mostrar apenas alunos ativos (não cancelados)"
+
+  - type: dropdown
+    id: access_control
+    attributes:
+      label: Controle de Acesso
+      description: Quem deveria ter acesso a estas informações?
+      options:
+        - Apenas eu (professor específico)
+        - Professores das atividades relevantes
+        - Coordenação pedagógica
+        - Administradores do sistema
+        - Direção da escola
+        - Combinação de grupos
+    validations:
+      required: true
+
+  - type: textarea
+    id: privacy_considerations
+    attributes:
+      label: Considerações de Privacidade
+      description: Há alguma preocupação de privacidade ou política da escola a considerar?
+      placeholder: |
+        Exemplo:
+        "A escola tem política de não compartilhar emails dos alunos externamente. 
+        Apenas professores autorizados podem acessar informações de contato. 
+        Dados devem ser protegidos conforme LGPD."
+
+  - type: dropdown
+    id: automation_level
+    attributes:
+      label: Nível de Automação Desejado
+      description: Como você gostaria que este processo funcionasse?
+      options:
+        - Manual - eu solicito quando preciso
+        - Semi-automático - relatórios agendados periodicamente
+        - Automático - dados sempre atualizados e disponíveis
+        - Notificações automáticas quando há mudanças
+    validations:
+      required: true
+
+  - type: textarea
+    id: current_process
+    attributes:
+      label: Processo Atual
+      description: Como você faz isso hoje? Que problemas enfrenta?
+      placeholder: |
+        Descreva como você obtém essas informações atualmente.
+        
+        Exemplo:
+        "Hoje preciso verificar manualmente cada atividade no sistema, anotar os nomes 
+        em papel, e depois digitar tudo em uma planilha. Isso leva 2 horas toda semana 
+        e às vezes cometo erros de digitação."
+    validations:
+      required: true
+
+  - type: textarea
+    id: success_criteria
+    attributes:
+      label: Critérios de Sucesso
+      description: Como saberemos que esta funcionalidade atende suas necessidades?
+      placeholder: |
+        ✅ Consigo gerar relatório em menos de 5 minutos
+        ✅ Dados estão sempre atualizados automaticamente
+        ✅ Posso exportar lista para usar em outros programas
+        ✅ Não preciso mais fazer trabalho manual repetitivo
+        ✅ Informações são precisas e confiáveis
+    validations:
+      required: true
+
+  - type: dropdown
+    id: urgency
+    attributes:
+      label: Urgência
+      description: Quando você precisa desta funcionalidade?
+      options:
+        - Urgente - Esta semana
+        - Importante - Próximas 2 semanas
+        - Moderada - Próximo mês
+        - Planejamento - Próximo semestre
+        - Baixa prioridade - Quando possível
+    validations:
+      required: true
+
+  - type: textarea
+    id: impact
+    attributes:
+      label: Impacto Esperado
+      description: Como esta funcionalidade melhoraria seu trabalho e as atividades?
+      placeholder: |
+        Exemplo:
+        "Esta funcionalidade me pouparia 3 horas de trabalho manual por semana. 
+        Poderia usar esse tempo para melhor planejamento das atividades e atendimento 
+        individual aos alunos. Também reduziria erros e melhoraria comunicação com os estudantes."
+
+  - type: textarea
+    id: integration_needs
+    attributes:
+      label: Necessidades de Integração
+      description: Precisa integrar com outros sistemas da escola? (opcional)
+      placeholder: |
+        - Sistema acadêmico da escola
+        - Email institucional
+        - Sistema de notas
+        - Calendário escolar
+        - Outros sistemas
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist de Verificação
+      description: "Antes de enviar, confirme que:"
+      options:
+        - label: Considerei as políticas de privacidade da escola
+        - label: Tenho autorização para acessar os dados solicitados
+        - label: Especifiquei claramente quais dados preciso
+        - label: Expliquei como vou usar as informações

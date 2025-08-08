@@ -1,0 +1,228 @@
+name: 📝 Atualizar Conteúdo de Atividades
+description: Solicitar mudanças nas atividades existentes ou adicionar novas atividades
+title: "[CONTENT] "
+labels: ["content", "activities"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use este formulário para solicitar mudanças no conteúdo das atividades extracurriculares.
+        
+        **Para professores:** Este formulário é ideal para adicionar novas atividades, atualizar horários, descrições, ou modificar informações existentes.
+
+  - type: dropdown
+    id: request_type
+    attributes:
+      label: Tipo de Solicitação
+      description: O que você gostaria de fazer?
+      options:
+        - Adicionar nova atividade
+        - Modificar atividade existente
+        - Remover atividade
+        - Atualizar múltiplas atividades
+    validations:
+      required: true
+
+  - type: input
+    id: activity_name
+    attributes:
+      label: Nome da Atividade
+      description: Nome da atividade (nova ou existente)
+      placeholder: "Ex: Clube de Fotografia, Soccer Team, Programming Class"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Descrição da Atividade
+      description: Como você gostaria que a atividade seja descrita para os alunos?
+      placeholder: |
+        Escreva uma descrição atrativa e informativa da atividade.
+        
+        Exemplo:
+        "Explore o mundo da fotografia digital! Aprenda técnicas de composição, edição 
+        básica e desenvolva seu olhar artístico. Participantes terão acesso a equipamentos 
+        profissionais e farão sessões práticas pela escola."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Categoria da Atividade
+      description: A qual categoria esta atividade pertence?
+      options:
+        - sports (Esportes)
+        - arts (Artes)
+        - academic (Acadêmica)
+        - community (Comunidade)
+        - technology (Tecnologia)
+        - Outra categoria (especifique nos detalhes)
+    validations:
+      required: true
+
+  - type: input
+    id: schedule_simple
+    attributes:
+      label: Horário da Atividade (Formato Simples)
+      description: Descreva quando a atividade acontece
+      placeholder: "Ex: Terças e quintas, 15:30 - 17:00"
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: days
+    attributes:
+      label: Dias da Semana
+      description: Em quais dias a atividade acontece?
+      options:
+        - label: Segunda-feira
+        - label: Terça-feira
+        - label: Quarta-feira
+        - label: Quinta-feira
+        - label: Sexta-feira
+        - label: Sábado
+        - label: Domingo
+
+  - type: input
+    id: start_time
+    attributes:
+      label: Horário de Início
+      description: Que horas a atividade começa?
+      placeholder: "Ex: 15:30, 07:00, 10:00"
+
+  - type: input
+    id: end_time
+    attributes:
+      label: Horário de Término
+      description: Que horas a atividade termina?
+      placeholder: "Ex: 17:00, 08:00, 12:00"
+
+  - type: input
+    id: max_participants
+    attributes:
+      label: Número Máximo de Participantes
+      description: Quantos alunos podem participar desta atividade?
+      placeholder: "Ex: 15, 30, 12"
+    validations:
+      required: true
+
+  - type: input
+    id: coordinator
+    attributes:
+      label: Professor/Coordenador Responsável
+      description: Quem coordena esta atividade?
+      placeholder: "Ex: Prof. Silva, Ms. Rodriguez"
+
+  - type: textarea
+    id: requirements
+    attributes:
+      label: Requisitos ou Pré-requisitos
+      description: Há algum requisito para participar? (opcional)
+      placeholder: |
+        Exemplo:
+        - Conhecimento básico de programação
+        - Próprio instrumento musical
+        - Autorização dos pais para atividades externas
+        - Disponibilidade para competições aos sábados
+
+  - type: textarea
+    id: materials
+    attributes:
+      label: Materiais ou Equipamentos
+      description: Que materiais a escola deve fornecer ou os alunos devem trazer? (opcional)
+      placeholder: |
+        Exemplo:
+        - Escola fornece: computadores, software, projetores
+        - Alunos devem trazer: caderno, lápis
+        - Materiais especiais: uniformes serão fornecidos
+
+  - type: dropdown
+    id: location
+    attributes:
+      label: Local da Atividade
+      description: Onde acontece a atividade?
+      options:
+        - Sala de aula
+        - Laboratório de informática
+        - Ginásio
+        - Campo de esportes
+        - Auditório
+        - Biblioteca
+        - Sala de arte
+        - Laboratório de ciências
+        - Quadra externa
+        - Outro local (especifique nos detalhes)
+
+  - type: textarea
+    id: changes_needed
+    attributes:
+      label: Mudanças Específicas Necessárias
+      description: Se você está modificando uma atividade existente, o que exatamente precisa mudar?
+      placeholder: |
+        Para modificações, seja específico sobre o que mudar:
+        
+        Exemplo:
+        "Alterar horário do Chess Club de 'Segundas e sextas 15:15-16:45' para 
+        'Quartas 15:30-17:00' devido a conflito com outras atividades."
+
+  - type: dropdown
+    id: urgency
+    attributes:
+      label: Urgência da Mudança
+      description: Quando esta mudança precisa estar implementada?
+      options:
+        - Imediatamente - Para esta semana
+        - Próxima semana
+        - Próximo mês
+        - Próximo semestre
+        - Sem pressa específica
+    validations:
+      required: true
+
+  - type: textarea
+    id: reason
+    attributes:
+      label: Motivo da Mudança
+      description: Por que esta mudança/adição é necessária?
+      placeholder: |
+        Exemplo:
+        "Muitos alunos pediram uma atividade de fotografia. Temos equipamentos disponíveis 
+        e um professor voluntário. Acreditamos que 20-25 alunos se interessariam."
+    validations:
+      required: true
+
+  - type: textarea
+    id: impact
+    attributes:
+      label: Impacto Esperado
+      description: Como esta mudança afetará os alunos e a escola?
+      placeholder: |
+        "Esperamos que esta atividade:
+        - Aumente o interesse dos alunos em artes visuais
+        - Desenvolva habilidades técnicas e criativas
+        - Crie oportunidades para participação em concursos escolares"
+
+  - type: checkboxes
+    id: approvals
+    attributes:
+      label: Aprovações Necessárias
+      description: "Esta mudança já foi aprovada por:"
+      options:
+        - label: Coordenação pedagógica
+        - label: Direção da escola
+        - label: Professor responsável
+        - label: Não requer aprovações especiais
+        - label: Ainda preciso verificar aprovações
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist de Verificação
+      description: "Antes de enviar, confirme que:"
+      options:
+        - label: Verifiquei se não há conflitos de horário com outras atividades
+        - label: Confirmei a disponibilidade do espaço/equipamentos necessários
+        - label: Obtive as aprovações necessárias (se aplicável)
+        - label: Considerei o impacto nos alunos já inscritos (para modificações)
