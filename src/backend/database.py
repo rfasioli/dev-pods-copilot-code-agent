@@ -53,7 +53,8 @@ initial_activities = {
             "end_time": "16:45"
         },
         "max_participants": 12,
-        "participants": ["michael@mergington.edu", "daniel@mergington.edu"]
+        "participants": ["michael@mergington.edu", "daniel@mergington.edu"],
+        "difficulty": "Iniciante"
     },
     "Programming Class": {
         "description": "Learn programming fundamentals and build software projects",
@@ -64,7 +65,8 @@ initial_activities = {
             "end_time": "08:00"
         },
         "max_participants": 20,
-        "participants": ["emma@mergington.edu", "sophia@mergington.edu"]
+        "participants": ["emma@mergington.edu", "sophia@mergington.edu"],
+        "difficulty": "Intermediário"
     },
     "Morning Fitness": {
         "description": "Early morning physical training and exercises",
@@ -130,7 +132,8 @@ initial_activities = {
             "end_time": "08:00"
         },
         "max_participants": 10,
-        "participants": ["james@mergington.edu", "benjamin@mergington.edu"]
+        "participants": ["james@mergington.edu", "benjamin@mergington.edu"],
+        "difficulty": "Intermediário"
     },
     "Debate Team": {
         "description": "Develop public speaking and argumentation skills",
@@ -163,7 +166,8 @@ initial_activities = {
             "end_time": "16:00"
         },
         "max_participants": 18,
-        "participants": ["isabella@mergington.edu", "lucas@mergington.edu"]
+        "participants": ["isabella@mergington.edu", "lucas@mergington.edu"],
+        "difficulty": "Avançado"
     },
     "Sunday Chess Tournament": {
         "description": "Weekly tournament for serious chess players with rankings",
@@ -174,7 +178,8 @@ initial_activities = {
             "end_time": "17:00"
         },
         "max_participants": 16,
-        "participants": ["william@mergington.edu", "jacob@mergington.edu"]
+        "participants": ["william@mergington.edu", "jacob@mergington.edu"],
+        "difficulty": "Avançado"
     },
     "Manga Maniacs": {
         "description": "Mergulhe no universo épico dos mangás japoneses! Descubra mundos fantásticos, heróis corajosos, batalhas épicas e amizades inesquecíveis. Analise técnicas de narrativa visual, discuta suas séries favoritas e crie suas próprias histórias. Um clube para verdadeiros otakus e futuros mangakás!",

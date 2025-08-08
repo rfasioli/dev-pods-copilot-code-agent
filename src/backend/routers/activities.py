@@ -17,14 +17,16 @@ router = APIRouter(
 def get_activities(
     day: Optional[str] = None,
     start_time: Optional[str] = None,
-    end_time: Optional[str] = None
+    end_time: Optional[str] = None,
+    difficulty: Optional[str] = None
 ) -> Dict[str, Any]:
     """
-    Get all activities with their details, with optional filtering by day and time
+    Get all activities with their details, with optional filtering by day, time, and difficulty
     
     - day: Filter activities occurring on this day (e.g., 'Monday', 'Tuesday')
     - start_time: Filter activities starting at or after this time (24-hour format, e.g., '14:30')
     - end_time: Filter activities ending at or before this time (24-hour format, e.g., '17:00')
+    - difficulty: Filter activities by difficulty level ('Iniciante', 'Intermediário', 'Avançado', or 'todos' for activities without difficulty)
     """
     
     if not mongodb_available:
@@ -32,7 +34,7 @@ def get_activities(
         activities = initial_activities.copy()
         
         # Apply filters manually for fallback mode
-        if day or start_time or end_time:
+        if day or start_time or end_time or difficulty:
             filtered_activities = {}
             for name, details in activities.items():
                 include = True
@@ -51,6 +53,17 @@ def get_activities(
                 if end_time and details.get("schedule_details"):
                     if details["schedule_details"]["end_time"] > end_time:
                         include = False
+                
+                # Check difficulty filter
+                if difficulty:
+                    if difficulty == "todos":
+                        # Show only activities without difficulty specified
+                        if details.get("difficulty"):
+                            include = False
+                    else:
+                        # Show only activities with the specified difficulty
+                        if details.get("difficulty") != difficulty:
+                            include = False
                         
                 if include:
                     filtered_activities[name] = details
@@ -71,6 +84,14 @@ def get_activities(
     
     if end_time:
         query["schedule_details.end_time"] = {"$lte": end_time}
+    
+    if difficulty:
+        if difficulty == "todos":
+            # Show only activities without difficulty specified
+            query["difficulty"] = {"$exists": False}
+        else:
+            # Show only activities with the specified difficulty
+            query["difficulty"] = difficulty
     
     # Query the database
     activities = {}
