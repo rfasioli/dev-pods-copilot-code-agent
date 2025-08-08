@@ -177,7 +177,7 @@ initial_activities = {
         "participants": ["william@mergington.edu", "jacob@mergington.edu"]
     },
     "Manga Maniacs": {
-        "description": "Explore as histórias fantásticas dos personagens mais interessantes dos Mangás japoneses (romances gráficos).",
+        "description": "Mergulhe no universo épico dos mangás japoneses! Descubra mundos fantásticos, heróis corajosos, batalhas épicas e amizades inesquecíveis. Analise técnicas de narrativa visual, discuta suas séries favoritas e crie suas próprias histórias. Um clube para verdadeiros otakus e futuros mangakás!",
         "schedule": "Tuesdays, 7:00 PM - 8:30 PM",
         "schedule_details": {
             "days": ["Tuesday"],
