@@ -5,11 +5,20 @@ MongoDB database configuration and setup for Mergington High School API
 from pymongo import MongoClient
 from argon2 import PasswordHasher
 
-# Connect to MongoDB
-client = MongoClient('mongodb://localhost:27017/')
-db = client['mergington_high']
-activities_collection = db['activities']
-teachers_collection = db['teachers']
+# Connect to MongoDB with error handling
+try:
+    client = MongoClient('mongodb://localhost:27017/', serverSelectionTimeoutMS=5000)
+    # Test the connection
+    client.admin.command('ping')
+    db = client['mergington_high']
+    activities_collection = db['activities']
+    teachers_collection = db['teachers']
+    mongodb_available = True
+except Exception as e:
+    print(f"MongoDB not available: {e}. Running in fallback mode.")
+    mongodb_available = False
+    activities_collection = None
+    teachers_collection = None
 
 # Methods
 def hash_password(password):
@@ -19,6 +28,9 @@ def hash_password(password):
 
 def init_database():
     """Initialize database if empty"""
+    if not mongodb_available:
+        print("Running without MongoDB - using in-memory data")
+        return
 
     # Initialize activities if empty
     if activities_collection.count_documents({}) == 0:
@@ -163,6 +175,17 @@ initial_activities = {
         },
         "max_participants": 16,
         "participants": ["william@mergington.edu", "jacob@mergington.edu"]
+    },
+    "Manga Maniacs": {
+        "description": "Mergulhe no universo épico dos mangás japoneses! Descubra mundos fantásticos, heróis corajosos, batalhas épicas e amizades inesquecíveis. Analise técnicas de narrativa visual, discuta suas séries favoritas e crie suas próprias histórias. Um clube para verdadeiros otakus e futuros mangakás!",
+        "schedule": "Tuesdays, 7:00 PM - 8:30 PM",
+        "schedule_details": {
+            "days": ["Tuesday"],
+            "start_time": "19:00",
+            "end_time": "20:30"
+        },
+        "max_participants": 15,
+        "participants": []
     }
 }
 

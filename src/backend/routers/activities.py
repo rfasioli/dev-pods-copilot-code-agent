@@ -6,7 +6,7 @@ from fastapi import APIRouter, HTTPException, Query
 from fastapi.responses import RedirectResponse
 from typing import Dict, Any, Optional, List
 
-from ..database import activities_collection, teachers_collection
+from ..database import activities_collection, teachers_collection, initial_activities, mongodb_available
 
 router = APIRouter(
     prefix="/activities",
@@ -26,6 +26,40 @@ def get_activities(
     - start_time: Filter activities starting at or after this time (24-hour format, e.g., '14:30')
     - end_time: Filter activities ending at or before this time (24-hour format, e.g., '17:00')
     """
+    
+    if not mongodb_available:
+        # Use fallback data when MongoDB is not available
+        activities = initial_activities.copy()
+        
+        # Apply filters manually for fallback mode
+        if day or start_time or end_time:
+            filtered_activities = {}
+            for name, details in activities.items():
+                include = True
+                
+                # Check day filter
+                if day and details.get("schedule_details"):
+                    if day not in details["schedule_details"]["days"]:
+                        include = False
+                
+                # Check start_time filter
+                if start_time and details.get("schedule_details"):
+                    if details["schedule_details"]["start_time"] < start_time:
+                        include = False
+                
+                # Check end_time filter
+                if end_time and details.get("schedule_details"):
+                    if details["schedule_details"]["end_time"] > end_time:
+                        include = False
+                        
+                if include:
+                    filtered_activities[name] = details
+            
+            return filtered_activities
+        
+        return activities
+    
+    # Original MongoDB code
     # Build the query based on provided filters
     query = {}
     
@@ -46,9 +80,10 @@ def get_activities(
     
     return activities
 
+"""
 @router.get("/days", response_model=List[str])
 def get_available_days() -> List[str]:
-    """Get a list of all days that have activities scheduled"""
+    # Get a list of all days that have activities scheduled
     # Aggregate to get unique days across all activities
     pipeline = [
         {"$unwind": "$schedule_details.days"},
@@ -64,7 +99,7 @@ def get_available_days() -> List[str]:
 
 @router.post("/{activity_name}/signup")
 def signup_for_activity(activity_name: str, email: str, teacher_username: Optional[str] = Query(None)):
-    """Sign up a student for an activity - requires teacher authentication"""
+    # Sign up a student for an activity - requires teacher authentication
     # Check teacher authentication
     if not teacher_username:
         raise HTTPException(status_code=401, detail="Authentication required for this action")
@@ -96,7 +131,7 @@ def signup_for_activity(activity_name: str, email: str, teacher_username: Option
 
 @router.post("/{activity_name}/unregister")
 def unregister_from_activity(activity_name: str, email: str, teacher_username: Optional[str] = Query(None)):
-    """Remove a student from an activity - requires teacher authentication"""
+    # Remove a student from an activity - requires teacher authentication
     # Check teacher authentication
     if not teacher_username:
         raise HTTPException(status_code=401, detail="Authentication required for this action")
@@ -125,3 +160,4 @@ def unregister_from_activity(activity_name: str, email: str, teacher_username: O
         raise HTTPException(status_code=500, detail="Failed to update activity")
     
     return {"message": f"Unregistered {email} from {activity_name}"}
+"""
