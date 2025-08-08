@@ -1,0 +1,204 @@
+name: 🎨 Melhorar Interface do Usuário
+description: Solicitar melhorias na aparência ou usabilidade do sistema
+title: "[UI/UX] "
+labels: ["ui/ux", "enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use este formulário para sugerir melhorias na interface do sistema de atividades.
+        
+        **Para professores:** Descreva problemas de usabilidade ou ideias para tornar o sistema mais fácil de usar para alunos, professores e administradores.
+
+  - type: dropdown
+    id: improvement_type
+    attributes:
+      label: Tipo de Melhoria
+      description: Que tipo de melhoria de interface você está sugerindo?
+      options:
+        - Melhorar usabilidade - tornar mais fácil de usar
+        - Melhorar aparência visual - cores, layout, design
+        - Adicionar acessibilidade - para pessoas com deficiências
+        - Otimizar para mobile - melhor experiência em celulares
+        - Reorganizar informações - tornar mais claro e organizado
+        - Adicionar atalhos ou funcionalidades rápidas
+        - Outro tipo de melhoria
+    validations:
+      required: true
+
+  - type: input
+    id: area_affected
+    attributes:
+      label: Área do Sistema Afetada
+      description: Qual parte do sistema precisa da melhoria?
+      placeholder: "Ex: Lista de atividades, formulário de inscrição, filtros de pesquisa, página principal"
+    validations:
+      required: true
+
+  - type: textarea
+    id: current_problem
+    attributes:
+      label: Problema Atual
+      description: O que é difícil, confuso ou frustrante no sistema atual?
+      placeholder: |
+        Descreva especificamente o que não está funcionando bem na experiência do usuário.
+        
+        Exemplo:
+        "Quando os alunos querem se inscrever em uma atividade, eles precisam rolar muito 
+        a página para encontrar o botão de inscrição. Muitos alunos não conseguem encontrar 
+        e desistem de se inscrever."
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed_solution
+    attributes:
+      label: Solução Proposta
+      description: Como você imagina que esta parte deveria funcionar ou aparecer?
+      placeholder: |
+        Descreva sua visão da solução em detalhes.
+        
+        Exemplo:
+        "O botão de inscrição deveria estar sempre visível no topo de cada atividade, 
+        com uma cor destacada como verde ou azul. Talvez também adicionar um botão 
+        'Inscrever-se Rapidamente' que aparece quando você passa o mouse sobre a atividade."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: user_group
+    attributes:
+      label: Quem Mais Se Beneficiaria
+      description: Qual grupo de usuários mais se beneficiaria desta melhoria?
+      options:
+        - Alunos
+        - Professores/Coordenadores
+        - Administradores
+        - Todos os usuários
+        - Visitantes (pais, comunidade)
+    validations:
+      required: true
+
+  - type: dropdown
+    id: device_priority
+    attributes:
+      label: Prioridade de Dispositivo
+      description: Em qual tipo de dispositivo esta melhoria é mais importante?
+      options:
+        - Computadores (desktop/laptop)
+        - Celulares e tablets
+        - Ambos igualmente
+        - Não sei/não importa
+    validations:
+      required: false
+
+  - type: textarea
+    id: user_feedback
+    attributes:
+      label: Feedback de Usuários
+      description: Que comentários você ouviu de alunos, professores ou outros usuários?
+      placeholder: |
+        Compartilhe comentários específicos que você ouviu sobre o sistema.
+        
+        Exemplo:
+        "Três professores diferentes mencionaram que é difícil ver rapidamente quantos 
+        alunos estão inscritos em cada atividade. Os alunos disseram que o texto é 
+        muito pequeno para ler no celular."
+
+  - type: textarea
+    id: accessibility_needs
+    attributes:
+      label: Necessidades de Acessibilidade
+      description: Há necessidades especiais de acessibilidade a considerar? (opcional)
+      placeholder: |
+        - Estudantes com deficiências visuais
+        - Necessidades de alto contraste
+        - Suporte a leitores de tela
+        - Navegação por teclado
+        - Fontes maiores
+
+  - type: dropdown
+    id: impact_level
+    attributes:
+      label: Nível de Impacto
+      description: Quão significativo seria o impacto desta melhoria?
+      options:
+        - Alto - Resolveria problemas principais de usabilidade
+        - Médio - Melhoraria consideravelmente a experiência
+        - Baixo - Seria uma melhoria agradável mas não crítica
+    validations:
+      required: true
+
+  - type: textarea
+    id: success_criteria
+    attributes:
+      label: Critérios de Sucesso
+      description: Como saberemos que esta melhoria foi bem-sucedida?
+      placeholder: |
+        Como você mediria o sucesso desta melhoria?
+        
+        Exemplo:
+        ✅ Alunos conseguem se inscrever em atividades em menos cliques
+        ✅ Professores conseguem ver informações importantes rapidamente
+        ✅ Sistema funciona bem em celulares
+        ✅ Usuários não precisam mais perguntar como usar uma funcionalidade
+    validations:
+      required: true
+
+  - type: textarea
+    id: examples_inspiration
+    attributes:
+      label: Exemplos ou Inspiração
+      description: Você conhece outros sites ou sistemas que fazem algo similar muito bem?
+      placeholder: |
+        Se você conhece outros sistemas com interfaces que funcionam bem para casos 
+        similares, descreva aqui.
+        
+        Exemplo:
+        "O sistema de reservas da biblioteca da universidade tem botões muito claros 
+        e é fácil de usar no celular. Algo assim seria ótimo."
+
+  - type: dropdown
+    id: urgency
+    attributes:
+      label: Urgência
+      description: Quão urgente é esta melhoria?
+      options:
+        - Crítica - Usuários estão tendo dificuldades significativas
+        - Alta - Causaria grande melhoria na experiência
+        - Média - Seria uma boa melhoria quando possível
+        - Baixa - Melhoria desejável mas não urgente
+    validations:
+      required: true
+
+  - type: textarea
+    id: constraints
+    attributes:
+      label: Limitações ou Considerações
+      description: Há alguma limitação que devemos considerar?
+      placeholder: |
+        - Limitações de orçamento
+        - Precisa funcionar em navegadores antigos
+        - Deve manter compatibilidade com sistema existente
+        - Políticas da escola sobre cores/design
+        - Prazos específicos
+
+  - type: textarea
+    id: additional_notes
+    attributes:
+      label: Notas Adicionais
+      description: Qualquer outra informação relevante sobre esta melhoria
+      placeholder: |
+        Qualquer contexto adicional, sugestões específicas, ou considerações 
+        que possam ajudar na implementação.
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist de Verificação
+      description: "Antes de enviar, confirme que:"
+      options:
+        - label: Testei o problema em diferentes navegadores (se possível)
+        - label: Considerei como isto afetaria diferentes tipos de usuários
+        - label: Incluí exemplos específicos do problema
+        - label: Pensei em como medir o sucesso da melhoria

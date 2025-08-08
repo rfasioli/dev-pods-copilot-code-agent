@@ -1,0 +1,166 @@
+name: ✨ Solicitar Nova Funcionalidade
+description: Sugerir uma nova funcionalidade ou melhoria para o sistema de atividades
+title: "[FEATURE] "
+labels: ["enhancement", "feature-request"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Obrigado por sugerir uma nova funcionalidade! Suas ideias nos ajudam a tornar o sistema melhor para todos.
+        
+        **Para professores:** Descreva sua necessidade em linguagem simples. Nosso agente de código usará estas informações para implementar exatamente o que você precisa.
+
+  - type: input
+    id: feature_title
+    attributes:
+      label: Nome da Funcionalidade
+      description: Dê um nome descritivo para sua solicitação
+      placeholder: "Ex: Sistema de Notificações por Email para Professores"
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problema ou Necessidade
+      description: Qual problema esta funcionalidade resolveria ou que necessidade atenderia?
+      placeholder: |
+        Descreva a situação atual e por que uma nova funcionalidade seria útil.
+        
+        Exemplo:
+        "Atualmente, não temos como saber quando novos alunos se inscrevem nas atividades. 
+        Precisamos verificar manualmente o sistema todos os dias, o que é demorado e às vezes 
+        esquecemos de verificar."
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Solução Proposta
+      description: Descreva como você imagina que esta funcionalidade funcionaria
+      placeholder: |
+        Explique em detalhes como você gostaria que funcionasse.
+        
+        Exemplo:
+        "Gostaria de receber um email automático sempre que um aluno se inscrever em uma 
+        das atividades que eu coordeno. O email deve incluir o nome do aluno, atividade, 
+        e talvez um link para ver a lista completa de inscritos."
+    validations:
+      required: true
+
+  - type: textarea
+    id: user_story
+    attributes:
+      label: Como Usuário, Eu Quero...
+      description: Complete esta frase descrevendo a funcionalidade do ponto de vista do usuário
+      placeholder: |
+        "Como [professor/aluno/administrador], eu quero [funcionalidade] para que [benefício]"
+        
+        Exemplo:
+        "Como professora de arte, eu quero receber notificações quando alunos se inscrevem 
+        no Art Club para que eu possa me preparar adequadamente e saber quantos materiais comprar."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: user_type
+    attributes:
+      label: Quem se beneficiaria desta funcionalidade?
+      description: Selecione o público principal
+      options:
+        - Professores/Coordenadores
+        - Alunos
+        - Administradores/Direção
+        - Todos os usuários
+        - Pais/Responsáveis (futuro)
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Prioridade
+      description: Quão importante é esta funcionalidade?
+      options:
+        - Crítica - Necessária para operação básica
+        - Alta - Melhoraria significativamente o trabalho
+        - Média - Seria uma boa adição
+        - Baixa - Seria interessante ter
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance_criteria
+    attributes:
+      label: Critérios de Aceitação
+      description: Como saberemos que esta funcionalidade está funcionando corretamente?
+      placeholder: |
+        Liste os critérios específicos que devem ser atendidos:
+        
+        Exemplo:
+        ✅ Professor recebe email dentro de 5 minutos após inscrição
+        ✅ Email inclui nome do aluno e atividade
+        ✅ Email tem link para lista completa de participantes
+        ✅ Professor pode escolher quais atividades quer receber notificações
+        ✅ Sistema não envia emails duplicados
+    validations:
+      required: true
+
+  - type: dropdown
+    id: complexity
+    attributes:
+      label: Complexidade Percebida
+      description: Esta funcionalidade parece ser...
+      options:
+        - Simples - Pequeno ajuste ou adição
+        - Moderada - Nova funcionalidade substancial
+        - Complexa - Mudança significativa no sistema
+        - Não sei avaliar
+    validations:
+      required: false
+
+  - type: textarea
+    id: examples
+    attributes:
+      label: Exemplos ou Referências
+      description: Você conhece outros sistemas que fazem algo similar? Como funciona?
+      placeholder: |
+        Se você viu esta funcionalidade em outros lugares ou tem exemplos específicos de como 
+        deveria funcionar, descreva aqui.
+        
+        Exemplo:
+        "O sistema da biblioteca da escola envia emails quando livros estão para vencer. 
+        Algo similar seria perfeito para as inscrições."
+
+  - type: textarea
+    id: constraints
+    attributes:
+      label: Limitações ou Considerações
+      description: Há alguma limitação ou consideração especial que devemos saber?
+      placeholder: |
+        - Restrições de orçamento
+        - Políticas da escola
+        - Integrações necessárias
+        - Questões de privacidade
+        - Prazos específicos
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternativas Consideradas
+      description: Você pensou em outras formas de resolver este problema?
+      placeholder: |
+        "Também consideramos fazer verificações manuais diárias, mas isso é muito demorado 
+        e propenso a erros."
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist de Verificação
+      description: "Antes de enviar, confirme que:"
+      options:
+        - label: Esta funcionalidade não existe atualmente no sistema
+        - label: A funcionalidade beneficiaria múltiplos usuários
+        - label: Incluí critérios claros de sucesso
+        - label: Considerei o impacto nos alunos e outros professores
